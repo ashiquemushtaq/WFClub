@@ -1,10 +1,10 @@
 package model;
 
-public class Review {
-    private String lesson;
-    private int rating;
+public class ReviewLesson {
+    private final String lesson;
+    private final int rating;
 
-    public Review(String lesson, int rating) {
+    public ReviewLesson(String lesson, int rating) {
         this.lesson = lesson;
         this.rating = rating;
     }
@@ -13,16 +13,12 @@ public class Review {
         return lesson;
     }
 
-    public void setLesson(String lesson) {
-        this.lesson = lesson;
-    }
-
     public int getRating() {
         return rating;
     }
 
-    public void setRating(int rating) {
-        this.rating = rating;
+    @Override
+    public String toString() {
+        return "Lesson: " + lesson + ", Rating: " + rating;
     }
 }
-

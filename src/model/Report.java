@@ -35,5 +35,8 @@ public class FitnessReportModel {
         this.price = price;
     }
 
-
+    @Override
+    public String toString() {
+        return "FitnessReportModel [type=" + type + ", attendees=" + attendees + ", price=" + price + "]";
+    }
 }

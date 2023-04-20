@@ -4,12 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="32b263bd-44c4-4480-bc39-47ea07503d72" name="Changes" comment="Added some placeholder files with some code">
-      <change afterPath="$PROJECT_DIR$/src/model/Review.java" afterDir="false" />
+    <list default="true" id="32b263bd-44c4-4480-bc39-47ea07503d72" name="Changes" comment="Completed models">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Customer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/Lesson.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Lesson.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/Report.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Report.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/Review.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Review.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,7 +56,7 @@
       <workItem from="1681991258568" duration="121000" />
       <workItem from="1681991443748" duration="99000" />
       <workItem from="1681991810034" duration="3322000" />
-      <workItem from="1682008819834" duration="103000" />
+      <workItem from="1682008819834" duration="1277000" />
     </task>
     <task id="LOCAL-00001" summary="Basic strucutre created">
       <created>1681991865855</created>
@@ -72,7 +72,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681993747020</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Completed models">
+      <created>1682009009576</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1682009009576</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -81,6 +88,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Basic strucutre created" />
     <MESSAGE value="Added some placeholder files with some code" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added some placeholder files with some code" />
+    <MESSAGE value="Completed models" />
+    <option name="LAST_COMMIT_MESSAGE" value="Completed models" />
   </component>
 </project>
