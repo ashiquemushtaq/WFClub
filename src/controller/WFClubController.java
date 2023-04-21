@@ -1,8 +1,8 @@
 package controller;
 
-import view.WFClubView;
+import view.WFClub;
 public class WFClubController {
     public WFClubController() {
-        WFClubView wfclubView = new WFClubView();
+        WFClub wfclubView = new WFClub();
     }
 }
