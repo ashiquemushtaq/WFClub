@@ -1,10 +1,10 @@
 package model;
 
-public class ReviewLesson {
+public class Review {
     private final String lesson;
     private final int rating;
 
-    public ReviewLesson(String lesson, int rating) {
+    public Review(String lesson, int rating) {
         this.lesson = lesson;
         this.rating = rating;
     }
