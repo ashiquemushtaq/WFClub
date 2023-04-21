@@ -1,11 +1,11 @@
 package model;
 
-public class FitnessReportModel {
+public class Report {
     private String type;
     private int attendees;
     private int price;
 
-    public FitnessReportModel(String type, int attendees, int price) {
+    public Report(String type, int attendees, int price) {
         this.type = type;
         this.attendees = attendees;
         this.price = price;

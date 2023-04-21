@@ -4,12 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="32b263bd-44c4-4480-bc39-47ea07503d72" name="Changes" comment="Completed models">
+    <list default="true" id="32b263bd-44c4-4480-bc39-47ea07503d72" name="Changes" comment="Updated models">
+      <change afterPath="$PROJECT_DIR$/src/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.classpath" beforeDir="false" afterPath="$PROJECT_DIR$/.classpath" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Customer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/Lesson.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Lesson.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/WFClub/WFClub.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/WFClubController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/WFClubController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/Report.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Report.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/Review.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Review.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/WFClub.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/WFClubView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,6 +48,15 @@
       <recent name="C:\Users\rakhi\Desktop\Projects\Java\WFClub\src\view" />
     </key>
   </component>
+  <component name="RunManager">
+    <configuration name="WFClub" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="WFClub.WFClub" />
+      <module name="WFClub" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -56,7 +68,11 @@
       <workItem from="1681991258568" duration="121000" />
       <workItem from="1681991443748" duration="99000" />
       <workItem from="1681991810034" duration="3322000" />
-      <workItem from="1682008819834" duration="1277000" />
+      <workItem from="1682008819834" duration="1505000" />
+      <workItem from="1682025026076" duration="163000" />
+      <workItem from="1682025247641" duration="611000" />
+      <workItem from="1682080585990" duration="632000" />
+      <workItem from="1682082128902" duration="58000" />
     </task>
     <task id="LOCAL-00001" summary="Basic strucutre created">
       <created>1681991865855</created>
@@ -79,7 +95,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682009009576</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Updated models">
+      <created>1682010950367</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1682010950367</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -89,6 +112,7 @@
     <MESSAGE value="Basic strucutre created" />
     <MESSAGE value="Added some placeholder files with some code" />
     <MESSAGE value="Completed models" />
-    <option name="LAST_COMMIT_MESSAGE" value="Completed models" />
+    <MESSAGE value="Updated models" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated models" />
   </component>
 </project>
