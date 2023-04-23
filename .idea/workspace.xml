@@ -4,15 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="32b263bd-44c4-4480-bc39-47ea07503d72" name="Changes" comment="Updated models">
-      <change afterPath="$PROJECT_DIR$/src/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.classpath" beforeDir="false" afterPath="$PROJECT_DIR$/.classpath" afterDir="false" />
+    <list default="true" id="32b263bd-44c4-4480-bc39-47ea07503d72" name="Changes" comment="Completed models">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/WFClub/WFClub.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/WFClubController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/WFClubController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/Report.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Report.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/Review.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Review.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/WFClub.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/WFClubView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/WFClubView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/WFClubView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,6 +67,7 @@
       <workItem from="1682025247641" duration="611000" />
       <workItem from="1682080585990" duration="632000" />
       <workItem from="1682082128902" duration="58000" />
+      <workItem from="1682272688893" duration="3437000" />
     </task>
     <task id="LOCAL-00001" summary="Basic strucutre created">
       <created>1681991865855</created>

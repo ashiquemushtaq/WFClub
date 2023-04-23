@@ -8,8 +8,6 @@ import model.Customer;
 public class WFClubView {
 
     private static final int maxCap = 5;
-    private static final String[] fitLessons = {"Spin", "Yoga", "Bodysculpt", "Zumba", "Aquacise", "Box Fit"};
-    private static final String[] fitLessonsFees = {"20", "30", "25", "15", "10", "12"};
     private Map<String, ArrayList<Integer>> satFirst = new HashMap<>();
     private Map<String, ArrayList<Integer>> satSecond = new HashMap<>();
     private Map<String, ArrayList<Integer>> satThird = new HashMap<>();
@@ -18,6 +16,8 @@ public class WFClubView {
     private Map<String, ArrayList<Integer>> sunSecond = new HashMap<>();
     private Map<String, ArrayList<Integer>> sunThird = new HashMap<>();
     private Map<String, ArrayList<Integer>> sunFourth = new HashMap<>();
+    private static final String[] fitLessons = {"Spin", "Yoga", "Bodysculpt", "Zumba", "Aquacise", "Box Fit"};
+    private static final String[] fitLessonsFees = {"20", "30", "25", "15", "10", "12"};
     private static Scanner scanner = new Scanner(System.in);
 
     public WFClubView() {
@@ -26,8 +26,8 @@ public class WFClubView {
         while (choice != 99) {
             System.out.println("Weekend Fitness Club");
             System.out.println("1. Book fitness lesson");
-            System.out.println("2. Cancel a booking");
-            System.out.println("3. Change a booking");
+            System.out.println("2. Change a booking");
+            System.out.println("3. Cancel a booking");
             System.out.println("4. Add a review");
             System.out.println("5. Monthly lesson report");
             System.out.println("6. Monthly champion fitness type report");
@@ -40,13 +40,13 @@ public class WFClubView {
                     bookLesson();
                     break;
                 case 2:
-                    CancelBooking();
+                    changeBooking();
                     break;
                 case 3:
-                    ChangeBooking();
+                    cancelBooking();
                     break;
                 case 4:
-                    Review();
+                    review();
                     break;
                 case 5:
                     lessonReport();
@@ -55,15 +55,12 @@ public class WFClubView {
                     fitnessLessonReport();
                     break;
                 case 7:
-                    Scanner scDisplay = new Scanner(System.in);
+                    Scanner inp = new Scanner(System.in);
                     System.out.print("Enter the day (Saturday or Sunday): ");
-                    String day = scDisplay.nextLine();
-                    System.out.print("Enter the weekend for booking ");
-                    String weekend = scDisplay.nextLine();
-                    System.out.print("Enter your customer ID: ");
-                    int customerId = scDisplay.nextInt();
-                    displayTimetable(weekend, day, customerId);
-
+                    String day = inp.nextLine();
+                    System.out.print("Enter the weekend: ");
+                    String weekend = inp.nextLine();
+                    showTimetable(weekend, day,0);
                     break;
                 case 99:
                     System.out.println("Exiting program...");
@@ -75,143 +72,14 @@ public class WFClubView {
 
     }
 
-    public void displayTimetable(String weekend, String day, int custId) {
-        {
-            System.out.println("######################################### Timetable ##############################################");
-            if (day.equalsIgnoreCase("saturday")) {
-                if (weekend.equalsIgnoreCase("1")) {
-                    System.out.println("SATURDAY FIRST WEEK: ");
-                    System.out.printf("| %-10s | %-8s | %-8s | %4s |%n", "LESSON", "SLOT BOOKED", "FEES", "MAX SLOTS");
-                    patternMatchWithCountdisplay(day, fitLessons, satFirst);
-                } else if (weekend.equalsIgnoreCase("2")) {
-                    System.out.println("SATURDAY SECOND WEEK: ");
-                    System.out.printf("| %-10s | %-8s | %4s |%n", "LESSON", "SLOT BOOKED", "MAX SLOTS");
-                    patternMatchWithCountdisplay(day, fitLessons, satSecond);
-
-                } else if (weekend.equalsIgnoreCase("3")) {
-                    System.out.println("SATURDAY THIRD WEEK: ");
-                    System.out.printf("| %-10s | %-8s | %4s |%n", "LESSON", "SLOT BOOKED", "MAX SLOTS");
-                    patternMatchWithCountdisplay(day, fitLessons, satThird);
-                } else {
-
-                    System.out.println("SATURDAY FORTH WEEK: ");
-                    System.out.printf("| %-10s | %-8s | %4s |%n", "LESSON", "SLOT BOOKED", "MAX SLOTS");
-                    patternMatchWithCountdisplay(day, fitLessons, satFourth);
-
-                }
-            }
-
-        }
-
-        if (day.equalsIgnoreCase("sunday")) {
-            if (weekend.equalsIgnoreCase("1")) {
-                System.out.println("SUNDAY FIRST WEEK: ");
-                System.out.printf("| %-10s | %-8s | %4s |%n", "LESSON", "SLOT BOOKED", "MAX SLOTS");
-                patternMatchWithCountdisplay(day, fitLessons, sunFirst);
-            } else if (weekend.equalsIgnoreCase("2")) {
-                System.out.println("SUNDAY SECOND WEEK: ");
-                System.out.printf("| %-10s | %-8s | %4s |%n", "LESSON", "SLOT BOOKED", "MAX SLOTS");
-                patternMatchWithCountdisplay(day, fitLessons, sunSecond);
-
-            } else if (weekend.equalsIgnoreCase("3")) {
-                System.out.println("SUNDAY THIRD WEEK: ");
-                System.out.printf("| %-10s | %-8s | %4s |%n", "LESSON", "SLOT BOOKED", "MAX SLOTS");
-                patternMatchWithCountdisplay(day, fitLessons, sunThird);
-            } else {
-
-                System.out.println("SUNDAY FORTH WEEK: ");
-                System.out.printf("| %-10s | %-8s | %4s |%n", "LESSON", "SLOT BOOKED", "MAX SLOTS");
-                patternMatchWithCountdisplay(day, fitLessons, sunFourth);
-
-            }
-        }
-
-        System.out.println("#########################################...........##############################################");
-        System.out.println();
-    }
-
-    private void Review() {
-
-        HashMap<String, ArrayList<String>> reviewsByCustomer = new HashMap<String, ArrayList<String>>();
-        HashMap<String, ArrayList<Integer>> ratingsByCustomer = new HashMap<String, ArrayList<Integer>>();
-        HashMap<String, ArrayList<String>> reviewLessonByCustomer = new HashMap<String, ArrayList<String>>();
-
-        // Prompt user for reviews and ratings
-        while (true) {
-            Scanner sc = new Scanner(System.in);
-            System.out.print("Enter a customer ID (or 'q' to quit): ");
-            String customerID = sc.nextLine();
-            if (customerID.equals("q")) {
-                break;
-            }
-            System.out.print("Enter a Lesson to Review: ");
-            String reviewLesson = sc.nextLine();
-            System.out.print("Enter a review: ");
-            String review = sc.nextLine();
-            System.out.print("Enter a rating (1-5): ");
-            int rating = sc.nextInt();
-            sc.nextLine();
-
-            // Add review and rating to customer's arrays
-            if (!reviewsByCustomer.containsKey(customerID)) {
-                reviewsByCustomer.put(customerID, new ArrayList<String>());
-            }
-            reviewsByCustomer.get(customerID).add(review);
-            if (!ratingsByCustomer.containsKey(customerID)) {
-                ratingsByCustomer.put(customerID, new ArrayList<Integer>());
-            }
-            ratingsByCustomer.get(customerID).add(rating);
-            if (!reviewLessonByCustomer.containsKey(customerID)) {
-                reviewLessonByCustomer.put(customerID, new ArrayList<String>());
-            }
-            reviewLessonByCustomer.get(customerID).add(reviewLesson);
-
-        }
-
-        // Display reviews and ratings by customer
-        for (String customerId : reviewsByCustomer.keySet()) {
-            System.out.println("-----------------------------");
-            System.out.println("Customer ID: " + customerId);
-            ArrayList<String> reviews = reviewsByCustomer.get(customerId);
-            ArrayList<Integer> ratings = ratingsByCustomer.get(customerId);
-            ArrayList<String> lessons = reviewLessonByCustomer.get(customerId);
-            for (int i = 0; i < reviews.size(); i++) {
-                System.out.println("- LessonType: " + lessons.get(i));
-                System.out.println("- Review: " + reviews.get(i));
-                int rating = ratings.get(i);
-                System.out.println("  Rating: " + getRatingMessage(rating));
-                System.out.println("-----------------------------");
-            }
-        }
-    }
-
-    private String getRatingMessage(int rating) {
-        switch (rating) {
-            case 1:
-                return "1 (We regret to learn that. Appreciate your input.)";
-            case 2:
-                return "2 (We value your opinions and will apply them to better our service.)";
-            case 3:
-                return "3 (We appreciate your comments. Sorry to hear that your experience was around average.)";
-            case 4:
-                return "4 (We appreciate your input. Happy to hear that your experience was positive.)";
-            case 5:
-                return "5 (Thank you for your feedback. We are so happy to hear you had a great time!)";
-            default:
-                return "Invalid rating";
-        }
-    }
-
-
     public boolean bookLesson() {
         // Book a lesson
-        // WeekendFitnessClub club = new WeekendFitnessClub();
         Scanner bookScanner = new Scanner(System.in);
         System.out.print("Enter the day (Saturday or Sunday): ");
         String day = bookScanner.nextLine();
         System.out.print("Enter the weekend for booking ");
         String weekend = bookScanner.nextLine();
-        displayTimetable(weekend, day, 0);
+        showTimetable(weekend, day, 0);
         System.out.print("Enter the lesson type: ");
         String lessonType = bookScanner.nextLine();
         System.out.print("Enter your customer ID: ");
@@ -255,65 +123,14 @@ public class WFClubView {
             customers.add(customerId);
             lessons.put(lessonType + day + customerId, customers);
             System.out.println("Booking successful.");
-            displayTimetable(weekend, day, customerId);
+            showTimetable(weekend, day, customerId);
 
             return true;
         }
 
     }
-
-
-    public boolean CancelBooking() {
-        // Book a lesson
-        Scanner bookScanner = new Scanner(System.in);
-        System.out.print("Enter the day (Saturday or Sunday): ");
-        String day = bookScanner.nextLine();
-        System.out.print("Enter the weekend for cadddncel booking (1 to 4) ");
-        String weekend = bookScanner.nextLine();
-        System.out.print("Enter the lesson type: ");
-        String lessonType = bookScanner.nextLine();
-        System.out.print("Enter your customer ID: ");
-        int customerId = bookScanner.nextInt();
-
-        Map<String, ArrayList<Integer>> lessons = null;
-        if (day.equals("Saturday")) {
-            if (weekend.equals("1")) lessons = satFirst;
-            if (weekend.equals("2")) lessons = satSecond;
-            if (weekend.equals("3")) lessons = satThird;
-            if (weekend.equals("4")) lessons = satFourth;
-
-        } else if (day.equals("Sunday")) {
-            if (weekend.equals("1")) lessons = sunFirst;
-            if (weekend.equals("2")) lessons = sunSecond;
-            if (weekend.equals("3")) lessons = sunThird;
-            if (weekend.equals("4")) lessons = sunFourth;
-
-        } else {
-            System.out.println("Sorry, invalid day. try again");
-            return false;
-        }
-
-        int lessonIndex = Arrays.asList(fitLessons).indexOf(lessonType);
-        if (lessonIndex == -1) {
-            System.out.println("Sorry, invalid lesson. try again");
-            return false;
-        }
-
-        ArrayList<Integer> customers = lessons.getOrDefault(lessonType + day + customerId, new ArrayList<>());
-        if (customers.contains(customerId)) {
-            lessons.remove(lessonType + day + customerId, customers);
-            System.out.println("Booking Cancel successful.");
-            return true;
-        } else {
-            System.out.println("Invalid Booking Try again.");
-            return false;
-        }
-
-    }
-
-
-    public boolean ChangeBooking() {
-        // Book a lesson
+    public boolean changeBooking() {
+        // Method for changing the current booking
         Scanner bookScanner = new Scanner(System.in);
         System.out.print("Enter the day (Saturday or Sunday): ");
         String day = bookScanner.nextLine();
@@ -395,9 +212,128 @@ public class WFClubView {
         }
 
     }
+    public boolean cancelBooking() {
+        // For cancelling the current booking
+    	
+        Scanner bookScanner = new Scanner(System.in);
+        System.out.print("Enter the day (Saturday or Sunday): ");
+        String day = bookScanner.nextLine();
+        System.out.print("Enter the weekend for cadddncel booking (1 to 4) ");
+        String weekend = bookScanner.nextLine();
+        System.out.print("Enter the lesson type: ");
+        String lessonType = bookScanner.nextLine();
+        System.out.print("Enter your customer ID: ");
+        int customerId = bookScanner.nextInt();
 
+        Map<String, ArrayList<Integer>> lessons = null;
+        if (day.equals("Saturday")) {
+            if (weekend.equals("1")) lessons = satFirst;
+            if (weekend.equals("2")) lessons = satSecond;
+            if (weekend.equals("3")) lessons = satThird;
+            if (weekend.equals("4")) lessons = satFourth;
+
+        } else if (day.equals("Sunday")) {
+            if (weekend.equals("1")) lessons = sunFirst;
+            if (weekend.equals("2")) lessons = sunSecond;
+            if (weekend.equals("3")) lessons = sunThird;
+            if (weekend.equals("4")) lessons = sunFourth;
+
+        } else {
+            System.out.println("Sorry, invalid day. try again");
+            return false;
+        }
+
+        int lessonIndex = Arrays.asList(fitLessons).indexOf(lessonType);
+        if (lessonIndex == -1) {
+            System.out.println("Sorry, invalid lesson. try again");
+            return false;
+        }
+
+        ArrayList<Integer> customers = lessons.getOrDefault(lessonType + day + customerId, new ArrayList<>());
+        if (customers.contains(customerId)) {
+            lessons.remove(lessonType + day + customerId, customers);
+            System.out.println("Booking Cancel successful.");
+            return true;
+        } else {
+            System.out.println("Invalid Booking Try again.");
+            return false;
+        }
+
+    }
+
+    private void review() {
+
+        HashMap<String, ArrayList<String>> reviewsByCustomer = new HashMap<String, ArrayList<String>>();
+        HashMap<String, ArrayList<Integer>> ratingsByCustomer = new HashMap<String, ArrayList<Integer>>();
+        HashMap<String, ArrayList<String>> reviewLessonByCustomer = new HashMap<String, ArrayList<String>>();
+
+        // Prompt user for reviews and ratings
+        while (true) {
+            Scanner sc = new Scanner(System.in);
+            System.out.print("Enter a customer ID (or 'q' to quit): ");
+            String customerID = sc.nextLine();
+            if (customerID.equals("q")) {
+                break;
+            }
+            System.out.print("Enter a Lesson to Review: ");
+            String reviewLesson = sc.nextLine();
+            System.out.print("Enter a review: ");
+            String review = sc.nextLine();
+            System.out.print("Enter a rating (1-5): ");
+            int rating = sc.nextInt();
+            sc.nextLine();
+
+            // Add review and rating to customer's arrays
+            if (!reviewsByCustomer.containsKey(customerID)) {
+                reviewsByCustomer.put(customerID, new ArrayList<String>());
+            }
+            reviewsByCustomer.get(customerID).add(review);
+            if (!ratingsByCustomer.containsKey(customerID)) {
+                ratingsByCustomer.put(customerID, new ArrayList<Integer>());
+            }
+            ratingsByCustomer.get(customerID).add(rating);
+            if (!reviewLessonByCustomer.containsKey(customerID)) {
+                reviewLessonByCustomer.put(customerID, new ArrayList<String>());
+            }
+            reviewLessonByCustomer.get(customerID).add(reviewLesson);
+
+        }
+
+        // Display reviews and ratings by customer
+        for (String customerId : reviewsByCustomer.keySet()) {
+            System.out.println("-----------------------------");
+            System.out.println("Customer ID: " + customerId);
+            ArrayList<String> reviews = reviewsByCustomer.get(customerId);
+            ArrayList<Integer> ratings = ratingsByCustomer.get(customerId);
+            ArrayList<String> lessons = reviewLessonByCustomer.get(customerId);
+            for (int i = 0; i < reviews.size(); i++) {
+                System.out.println("- LessonType: " + lessons.get(i));
+                System.out.println("- Review: " + reviews.get(i));
+                int rating = ratings.get(i);
+                System.out.println("  Rating: " + getRatingMessage(rating));
+                System.out.println("-----------------------------");
+            }
+        }
+    }
+
+    private String getRatingMessage(int rating) {
+        switch (rating) {
+            case 1:
+                return "1 (We regret to learn that. Appreciate your input.)";
+            case 2:
+                return "2 (We value your opinions and will apply them to better our service.)";
+            case 3:
+                return "3 (We appreciate your comments. Sorry to hear that your experience was around average.)";
+            case 4:
+                return "4 (We appreciate your input. Happy to hear that your experience was positive.)";
+            case 5:
+                return "5 (Thank you for your feedback. We are so happy to hear you had a great time!)";
+            default:
+                return "Invalid rating";
+        }
+    }
     public void lessonReport() {
-        // Define the lessons and their ratings
+        // Static data of some lessons and their ratings
         Map<String, Integer> lessonRatings = new HashMap<>();
         lessonRatings.put("Spin", 4);
         lessonRatings.put("Yoga", 3);
@@ -407,7 +343,7 @@ public class WFClubView {
         lessonRatings.put("Zumba", 2);
 
 
-        // Define the customers and their lessons and days
+        // Static customer list for generating report
         List<Customer> customers = new ArrayList<>();
         customers.add(new Customer("Leo", "Spin", "Saturday"));
         customers.add(new Customer("Aimee", "Spin", "Sunday"));
@@ -516,27 +452,73 @@ public class WFClubView {
         System.out.println("\nLesson type with highest income: " + highestIncomeLessonType);
     }
 
-    public void patternMatchWithCountdisplay(String daySelect, String[] fitnessLessons, Map<String, ArrayList<Integer>> lessonMap) {
+    public void showTimetable(String weekend, String day, int custId) {
+        System.out.println("_____________________ Timetable ______________________");
+
+        Map<String, ArrayList<Integer>> lessons;
+        if (day.equalsIgnoreCase("saturday")) {
+            switch (weekend) {
+                case "1":
+                    System.out.println("SATURDAY FIRST WEEK:");
+                    lessons = satFirst;
+                    break;
+                case "2":
+                    System.out.println("SATURDAY SECOND WEEK:");
+                    lessons = satSecond;
+                    break;
+                case "3":
+                    System.out.println("SATURDAY THIRD WEEK:");
+                    lessons = satThird;
+                    break;
+                default:
+                    System.out.println("SATURDAY FOURTH WEEK:");
+                    lessons = satFourth;
+                    break;
+            }
+        } else if (day.equalsIgnoreCase("sunday")) {
+            switch (weekend) {
+                case "1":
+                    System.out.println("SUNDAY FIRST WEEK:");
+                    lessons = sunFirst;
+                    break;
+                case "2":
+                    System.out.println("SUNDAY SECOND WEEK:");
+                    lessons = sunSecond;
+                    break;
+                case "3":
+                    System.out.println("SUNDAY THIRD WEEK:");
+                    lessons = sunThird;
+                    break;
+                default:
+                    System.out.println("SUNDAY FOURTH WEEK:");
+                    lessons = sunFourth;
+                    break;
+            }
+        } else {
+            System.out.println("Invalid day input.");
+            return;
+        }
+
+        System.out.printf("| %-10s | %-8s | %-8s | %4s |%n", "LESSON", "SLOT BOOKED", "FEES", "SLOT AVAIL");
+        matching(day, fitLessons, lessons);
+
+        System.out.println("______________________________________________________");
+        System.out.println();
+    }
+
+    public void matching(String daySelect, String[] fitnessLessons, Map<String, ArrayList<Integer>> lessonMap) {
 
         String pattern = "";
-        for (int i = 0; i < fitnessLessons.length; i++) {
-
+        for (String lesson : fitnessLessons) {
             int count = 0;
-            pattern = fitnessLessons[i] + daySelect;
+            pattern = lesson + daySelect;
             for (String key : lessonMap.keySet()) {
-
                 if (key.startsWith(pattern)) {
                     count++;
-
                 }
-
             }
-            if (count > 0) {
-                System.out.printf("| %-10s | %-8s    | %-8s    | %-8s  |%n", fitnessLessons[i], count, fitLessonsFees[i], maxCap);
-            } else {
-                System.out.printf("| %-10s | %-8s    | %-8s    | %-8s  |%n", fitnessLessons[i], 0, fitLessonsFees[i], maxCap);
-            }
-
+            String fee = fitLessonsFees[Arrays.asList(fitnessLessons).indexOf(lesson)];
+            System.out.printf("| %-10s | %-8s    | %-8s    | %-8s  |%n", lesson, count, fee, maxCap-count);
         }
 
     }
