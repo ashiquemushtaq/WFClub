@@ -11,15 +11,17 @@ public class Customer {
         this.day = day;
     }
 
-    public String getName() {
-        return name;
-    }
+	public String getName() {
+		return name;
+	}
 
-    public String getLessonName() {
-        return lessonName;
-    }
+	public String getLessonName() {
+		return lessonName;
+	}
 
-    public String getDay() {
-        return day;
-    }
+	public String getDay() {
+		return day;
+	}
+
+   
 }

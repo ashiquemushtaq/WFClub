@@ -1,13 +1,6 @@
 package model;
 
 public class Lesson {
-    public static final String[] LESSON_TYPES = {
-            "Yoga",
-            "Zumba",
-            "Spinning",
-            "Pilates",
-            "Crossfit"
-    };
 
     private String type;
     private int day;

@@ -3,4 +3,6 @@ module WFClub {
 	exports view;
 	exports WFClub;
 	exports model;
+	requires junit;
+	
 }

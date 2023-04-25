@@ -4,8 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="32b263bd-44c4-4480-bc39-47ea07503d72" name="Changes" comment="Completed models">
+    <list default="true" id="32b263bd-44c4-4480-bc39-47ea07503d72" name="Changes" comment="Updated method for displaying timetable.">
+      <change afterPath="$PROJECT_DIR$/src/Test/WFClubViewTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.classpath" beforeDir="false" afterPath="$PROJECT_DIR$/.classpath" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/WFClub/WFClub.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/WFClub/WFClub.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Customer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/module-info.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/WFClubView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/WFClubView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -67,7 +72,10 @@
       <workItem from="1682025247641" duration="611000" />
       <workItem from="1682080585990" duration="632000" />
       <workItem from="1682082128902" duration="58000" />
-      <workItem from="1682272688893" duration="3437000" />
+      <workItem from="1682272688893" duration="5997000" />
+      <workItem from="1682338569251" duration="534000" />
+      <workItem from="1682348635557" duration="141000" />
+      <workItem from="1682456003023" duration="658000" />
     </task>
     <task id="LOCAL-00001" summary="Basic strucutre created">
       <created>1681991865855</created>
@@ -97,7 +105,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682010950367</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Updated method for displaying timetable.">
+      <created>1682282569385</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1682282569385</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -108,6 +123,7 @@
     <MESSAGE value="Added some placeholder files with some code" />
     <MESSAGE value="Completed models" />
     <MESSAGE value="Updated models" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated models" />
+    <MESSAGE value="Updated method for displaying timetable." />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated method for displaying timetable." />
   </component>
 </project>
